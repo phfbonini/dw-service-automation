@@ -223,10 +223,27 @@
 }
 
 @media screen and (max-width: 480px) {
+    .setor-item {
+        padding: var(--spacing-md);
+        gap: var(--spacing-lg);
+    }
+    
     .setor-item__icon {
         width: 80px;
         height: 80px;
         font-size: 2rem;
+    }
+    
+    .setor-item__title {
+        font-size: 1.5rem;
+    }
+    
+    .setor-item__description {
+        font-size: 1rem;
+    }
+    
+    .beneficio-card {
+        padding: var(--spacing-sm) var(--spacing-md);
     }
 }
 

@@ -323,6 +323,20 @@
         padding: var(--spacing-lg);
     }
     
+    .info__card {
+        padding: var(--spacing-md);
+    }
+    
+    .info__icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.125rem;
+    }
+    
+    .info__card-content {
+        gap: var(--spacing-sm);
+    }
+    
     .info__title,
     .form__title {
         font-size: 1.75rem;
@@ -336,6 +350,19 @@
 @media screen and (max-width: 480px) {
     .contato__form-wrapper {
         padding: var(--spacing-md);
+    }
+    
+    .info__card {
+        padding: var(--spacing-md);
+    }
+    
+    .info__item span,
+    .info__item strong {
+        font-size: 0.75rem;
+    }
+    
+    .btn--full {
+        width: 100%;
     }
     
     .mapa {

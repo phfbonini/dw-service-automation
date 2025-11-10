@@ -1084,6 +1084,10 @@ button {
         flex-direction: column;
     }
     
+    .hero__gallery-main {
+        height: 360px;
+    }
+    
     .hero__gallery-rail {
         width: 100%;
         grid-auto-flow: column;
@@ -1183,6 +1187,10 @@ button {
         gap: var(--spacing-lg);
     }
     
+    .hero__gallery-main {
+        height: 280px;
+    }
+    
     .servico__featured-main {
         height: 220px;
     }
@@ -1205,6 +1213,14 @@ button {
     
     .estrutura__content {
         padding: var(--spacing-lg);
+    }
+    
+    .estrutura__media {
+        height: 200px;
+    }
+    
+    .servico__media {
+        height: 220px;
     }
     
     .setores__grid {
@@ -1259,6 +1275,18 @@ button {
     
     .setores__grid {
         grid-template-columns: 1fr;
+    }
+    
+    .hero__gallery-main {
+        height: 220px;
+    }
+    
+    .servico__media {
+        height: 200px;
+    }
+    
+    .estrutura__media {
+        height: 180px;
     }
 }
 

@@ -353,6 +353,10 @@
         max-width: 100%;
     }
     
+.service-detail__photo {
+    max-height: 360px;
+}
+
     .service-detail__title {
         font-size: 2rem;
     }
@@ -379,8 +383,30 @@
         grid-template-columns: 1fr;
     }
     
+    .service-detail__photo {
+        max-height: 280px;
+    }
+    
+    .service-detail__description {
+        font-size: 1rem;
+    }
+    
     .safety-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .service-detail__photo {
+        max-height: 220px;
+    }
+    
+    .service-detail__content {
+        gap: var(--spacing-sm);
+    }
+    
+    .service-detail__badge {
+        font-size: 0.75rem;
     }
 }
 
