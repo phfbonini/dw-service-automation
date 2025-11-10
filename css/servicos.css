@@ -51,17 +51,22 @@
 }
 
 .service-detail__grid--reverse {
-    direction: rtl;
+    direction: ltr;
 }
 
-.service-detail__grid--reverse > * {
-    direction: ltr;
+.service-detail__grid--reverse .service-detail__image {
+    order: 2;
+}
+
+.service-detail__grid--reverse .service-detail__content {
+    order: 1;
 }
 
 .service-detail__image {
     display: flex;
     justify-content: center;
     align-items: center;
+    order: 0;
 }
 
 .service-detail__photo {
@@ -89,6 +94,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .service-detail__badge {
