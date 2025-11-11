@@ -1293,12 +1293,33 @@ button {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
+        width: 85%;
+        max-width: 360px;
         height: 100%;
         background: var(--white);
         box-shadow: var(--shadow-xl);
-        padding: var(--spacing-2xl);
+        padding: clamp(1.25rem, 4vw, 2rem);
         transition: var(--transition);
+        z-index: 1001;
+    }
+    
+    .nav__menu::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: calc(100vw - min(85vw, 360px));
+        height: 100%;
+        background: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        transition: var(--transition);
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    .nav__menu.show-menu::after {
+        opacity: 1;
+        pointer-events: auto;
     }
     
     .nav__menu.show-menu {
@@ -1308,7 +1329,8 @@ button {
     .nav__list {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--spacing-md);
+        gap: clamp(0.75rem, 3vw, 1.25rem);
+        margin-top: clamp(0.5rem, 3vh, 1.25rem);
     }
     
     .nav__toggle,
@@ -1320,6 +1342,23 @@ button {
         position: absolute;
         top: var(--spacing-md);
         right: var(--spacing-md);
+        font-size: 2rem;
+    }
+    
+    .nav__link {
+        font-size: 1.125rem;
+        padding: 0.5rem 0;
+        font-weight: var(--font-weight-semibold);
+    }
+    
+    .nav__cta {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        border-radius: var(--radius-md);
     }
     
     .hero__title {
@@ -1352,12 +1391,6 @@ button {
     
     .servicos__featured {
         gap: var(--spacing-lg);
-        overflow: visible;
-        padding: var(--spacing-lg);
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        background-color: transparent;
     }
     
     .hero__gallery-main {
@@ -1370,21 +1403,19 @@ button {
     }
     
     .servico__featured-main {
-        flex: none;
         height: auto;
-        width: 100%;
+        aspect-ratio: 4 / 3;
+        background: var(--white);
     }
     
     .servico__featured-main img {
-        height: auto;
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
+        background: var(--white);
     }
     
     .servico__featured-rail {
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(110px, 1fr);
-        overflow-x: auto;
-        padding-bottom: var(--spacing-sm);
+        display: none;
     }
     
     .servico__featured-rail::-webkit-scrollbar {
