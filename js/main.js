@@ -281,26 +281,6 @@ function initCounters() {
 
 document.addEventListener('DOMContentLoaded', initCounters);
 
-/* ==================== PREVENÇÃO DE SCROLL HORIZONTAL ==================== */
-function preventHorizontalScroll() {
-    let startX;
-    
-    document.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].pageX;
-    }, { passive: true });
-    
-    document.addEventListener('touchmove', (e) => {
-        const diffX = Math.abs(e.touches[0].pageX - startX);
-        const diffY = Math.abs(e.touches[0].pageY - e.touches[0].pageY);
-        
-        if (diffX > diffY) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-}
-
-preventHorizontalScroll();
-
 /* ==================== PERFORMANCE: Debounce para eventos de scroll ==================== */
 function debounce(func, wait = 10) {
     let timeout;
