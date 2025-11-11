@@ -366,15 +366,19 @@
     
     .service-detail__photo {
         max-width: 100%;
+        max-height: none;
     }
     
-.service-detail__photo {
-    max-height: 360px;
-}
+    .service-detail__photo img {
+        height: auto;
+    }
 
-    .service-detail__grid .service-detail__image,
     .service-detail__grid .service-detail__content {
-        order: unset;
+        order: 1;
+    }
+    
+    .service-detail__grid .service-detail__image {
+        order: 2;
     }
 
     .service-detail__content {
@@ -408,7 +412,11 @@
     }
     
     .service-detail__photo {
-        max-height: 280px;
+        max-height: none;
+    }
+    
+    .service-detail__photo img {
+        height: auto;
     }
     
     .service-detail__description {
@@ -422,7 +430,11 @@
 
 @media screen and (max-width: 480px) {
     .service-detail__photo {
-        max-height: 220px;
+        max-height: none;
+    }
+    
+    .service-detail__photo img {
+        height: auto;
     }
     
     .service-detail__content {
