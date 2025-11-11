@@ -1352,6 +1352,12 @@ button {
     
     .servicos__featured {
         gap: var(--spacing-lg);
+        overflow: visible;
+        padding: var(--spacing-lg);
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
     }
     
     .hero__gallery-main {
@@ -1364,11 +1370,14 @@ button {
     }
     
     .servico__featured-main {
+        flex: none;
         height: auto;
+        width: 100%;
     }
     
     .servico__featured-main img {
         height: auto;
+        object-fit: contain;
     }
     
     .servico__featured-rail {
