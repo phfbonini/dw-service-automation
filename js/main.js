@@ -412,10 +412,10 @@ function initGallery(mainSelector, thumbSelector, config = {}) {
 document.addEventListener('DOMContentLoaded', () => {
     initGallery('#hero-main-image', '.hero__thumb', { autoplay: true, interval: 3200 });
     initGallery('#servico-featured-main', '.servico__featured-thumb', { autoplay: true, interval: 4200 });
-    initGallery('#solucoes-guilhotina-main', '.solucoes__thumb', { autoplay: true, interval: 4200 });
-    initGallery('#solucoes-controle-main', '.solucoes__card:nth-of-type(2) .solucoes__thumb', { autoplay: true, interval: 4200 });
-    initGallery('#solucoes-seguranca-main', '.solucoes__card:nth-of-type(3) .solucoes__thumb', { autoplay: true, interval: 4200 });
-    initGallery('#solucoes-certificacao-main', '.solucoes__card:nth-of-type(4) .solucoes__thumb', { autoplay: true, interval: 4200 });
+    initGallery('#solucoes-guilhotina-main', '.solucoes__thumb--guilhotina', { autoplay: true, interval: 4200 });
+    initGallery('#solucoes-controle-main', '.solucoes__thumb--controle', { autoplay: true, interval: 4200 });
+    initGallery('#solucoes-seguranca-main', '.solucoes__thumb--seguranca', { autoplay: true, interval: 4200 });
+    initGallery('#solucoes-certificacao-main', '.solucoes__thumb--certificacao', { autoplay: true, interval: 4200 });
 });
 
 /* ==================== LOG DE INICIALIZAÇÃO ==================== */
