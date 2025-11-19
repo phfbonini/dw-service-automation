@@ -1,27 +1,82 @@
 /* ==================== MENU MOBILE ==================== */
+// Suporte para nova estrutura (index.html)
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+// Suporte para estrutura antiga (outras páginas)
 const navMenu = document.getElementById('nav-menu');
+const navList = document.querySelector('.nav__list');
 const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
-const navLinks = document.querySelectorAll('.nav__link');
+const navLinksOld = document.querySelectorAll('.nav__link');
 
-// Abrir menu mobile
+// Nova estrutura (index.html style)
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        const isActive = navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        document.body.classList.toggle('menu-open', isActive);
+    });
+    
+    // Fechar menu ao clicar em um link
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+    
+    // Fechar menu ao clicar no overlay (body)
+    document.body.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('active') && 
+            !navLinks.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    }, true);
+    
+    // Fechar menu com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+}
+
+// Estrutura antiga (compatibilidade)
 if (navToggle) {
     navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu');
+        if (navList) {
+            navList.classList.add('active');
+        } else if (navMenu) {
+            navMenu.classList.add('show-menu');
+        }
     });
 }
 
-// Fechar menu mobile
 if (navClose) {
     navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
+        if (navList) {
+            navList.classList.remove('active');
+        } else if (navMenu) {
+            navMenu.classList.remove('show-menu');
+        }
     });
 }
 
-// Fechar menu ao clicar em um link
-navLinks.forEach(link => {
+navLinksOld.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
+        if (navList) {
+            navList.classList.remove('active');
+        } else if (navMenu) {
+            navMenu.classList.remove('show-menu');
+        }
     });
 });
 
@@ -30,9 +85,9 @@ function scrollHeader() {
     const header = document.getElementById('header');
     // Quando o scroll é maior que 50 viewport height, adiciona classe
     if (window.scrollY >= 50) {
-        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+        header.classList.add('scrolled');
     } else {
-        header.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
+        header.classList.remove('scrolled');
     }
 }
 window.addEventListener('scroll', scrollHeader);
@@ -412,10 +467,9 @@ function initGallery(mainSelector, thumbSelector, config = {}) {
 document.addEventListener('DOMContentLoaded', () => {
     initGallery('#hero-main-image', '.hero__thumb', { autoplay: true, interval: 3200 });
     initGallery('#servico-featured-main', '.servico__featured-thumb', { autoplay: true, interval: 4200 });
-    initGallery('#solucoes-guilhotina-main', '.solucoes__thumb--guilhotina', { autoplay: true, interval: 4200 });
-    initGallery('#solucoes-controle-main', '.solucoes__thumb--controle', { autoplay: true, interval: 4200 });
-    initGallery('#solucoes-seguranca-main', '.solucoes__thumb--seguranca', { autoplay: true, interval: 4200 });
-    initGallery('#solucoes-certificacao-main', '.solucoes__thumb--certificacao', { autoplay: true, interval: 4200 });
+    initGallery('#fabricacao-tipo1-main', '.fabricacao__thumb--tipo1', { autoplay: true, interval: 4200 });
+    initGallery('#fabricacao-tipo2-main', '.fabricacao__thumb--tipo2', { autoplay: true, interval: 4200 });
+    initGallery('#fabricacao-tipo3-main', '.fabricacao__thumb--tipo3', { autoplay: true, interval: 4200 });
 });
 
 /* ==================== LOG DE INICIALIZAÇÃO ==================== */

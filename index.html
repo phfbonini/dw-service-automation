@@ -3,473 +3,1441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DW Service Automation - Especialistas em manutenção, calibração e fabricação de válvulas industriais">
-    <title>DW Service Automation - Automação Industrial com Precisão</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>DW Service Automation - Automação Industrial de Excelência</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="res/icone.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="res/icone.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="res/icone.png">
-    <link rel="shortcut icon" type="image/png" href="res/icone.png">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e40af;
+            --secondary: #f97316;
+            --dark: #0f172a;
+            --gray-900: #1e293b;
+            --gray-800: #334155;
+            --gray-700: #475569;
+            --gray-600: #64748b;
+            --gray-400: #94a3b8;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-900);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Header Premium */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white) !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Premium com Video Background Concept */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(59, 130, 246, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge i {
+            color: #34d399;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2.5rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary) 0%, #ea580c 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Hero Visual Premium */
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .hero-image {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            aspect-ratio: 4/3;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-card:hover .hero-image img {
+            transform: scale(1.05);
+        }
+
+        .hero-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .hero-thumb {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-thumb:hover,
+        .hero-thumb.active {
+            border-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--white);
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .trust-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--gray-100);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .trust-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .trust-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            color: var(--white);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .trust-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .trust-content p {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Section Base */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Produtos em Tabs Modernas */
+        .products-section {
+            background: linear-gradient(180deg, var(--white) 0%, var(--gray-100) 100%);
+        }
+
+        .product-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .product-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-gallery {
+            position: relative;
+        }
+
+        .main-image {
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 3/4;
+            background: var(--gray-100);
+            max-height: 600px;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f8f9fa;
+        }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .gallery-thumb {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: var(--transition);
+            background: var(--gray-100);
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-thumb:hover,
+        .gallery-thumb.active {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(234, 88, 12, 0.1) 100%);
+            color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .product-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .product-features {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .product-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--gray-100);
+            border-radius: 10px;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .product-features i {
+            color: var(--success);
+            font-size: 1.25rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+            padding-top: 1rem;
+        }
+
+        /* Services Grid Premium */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--primary);
+        }
+
+        .service-image {
+            height: 240px;
+            overflow: hidden;
+            background: var(--gray-100);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            color: var(--white);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* CTA Premium */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+        }
+
+        .cta-container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            color: var(--gray-400);
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer Premium */
+        .footer {
+            background: var(--dark);
+            color: var(--gray-400);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--white);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 0.5rem;
+        }
+
+        .footer-contact {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-contact li {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary-light);
+            margin-top: 0.25rem;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 64px;
+            height: 64px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .product-showcase {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                box-shadow: var(--shadow-2xl);
+                transition: var(--transition);
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .product-tabs {
+                flex-direction: column;
+            }
+
+            .product-showcase {
+                padding: 2rem 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .whatsapp-float {
+                width: 56px;
+                height: 56px;
+                font-size: 1.5rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header/Navigation -->
+    <!-- Header -->
     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="index.html" class="nav__logo">
+        <nav class="nav">
+            <a href="index.html" class="logo">
                 <img src="res/logo.png" alt="DW Service Automation">
             </a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link active">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="servicos.html" class="nav__link">Serviços</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="setores.html" class="nav__link">Setores</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="sobre.html" class="nav__link">Sobre</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="contato.html" class="nav__link nav__cta">Contato</a>
-                    </li>
-                </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-
-            <div class="nav__toggle" id="nav-toggle">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#produtos">Produtos</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="setores.html">Setores</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html" class="nav-cta">Solicitar Orçamento</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero__container container">
-            <div class="hero__content">
-                <span class="hero__subtitle">Especialistas em Automação Industrial</span>
-                <h1 class="hero__title">
-                    Automação Industrial com <span class="highlight">Precisão</span> e <span class="highlight">Confiabilidade</span>
-                </h1>
-                <p class="hero__description">
-                    Especialistas em manutenção, calibração e fabricação de válvulas industriais para os setores mais exigentes do mercado.
+        <div class="hero-grid"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-shield-check"></i>
+                    <span>Certificada ISO 9001 • NR 10, 13, 33, 35</span>
+                </div>
+                <h1 class="hero-title">Automação Industrial de Precisão e Confiabilidade</h1>
+                <p class="hero-subtitle">
+                    Fabricação exclusiva de válvulas guilhotina, manutenção especializada e integração completa de sistemas. 
+                    Da engenharia à entrega, garantimos performance contínua para sua operação.
                 </p>
-                <div class="hero__buttons">
-                    <a href="contato.html" class="btn btn--primary">
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">+10</div>
+                        <div class="stat-label">Anos de Expertise</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Projetos Entregues</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Rastreabilidade</div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="contato.html" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i>
-                        Solicite um Orçamento
+                        Solicitar Diagnóstico Gratuito
                     </a>
-                    <a href="servicos.html" class="btn btn--outline">
-                        Nossos Serviços
-                        <i class="fas fa-arrow-right"></i>
+                    <a href="#produtos" class="btn btn-secondary">
+                        <i class="fas fa-cog"></i>
+                        Conhecer Soluções
                     </a>
                 </div>
             </div>
-            <div class="hero__gallery">
-                <figure class="hero__gallery-main">
-                    <img src="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg" alt="Válvula guilhotina montada na DW Service Automation" id="hero-main-image">
-                </figure>
-                <div class="hero__gallery-rail" aria-label="Galeria de válvulas guilhotina">
-                    <button type="button" class="hero__thumb is-active" data-full="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg" aria-label="Exibir válvula guilhotina montada">
-                        <img src="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg" alt="Detalhe da válvula guilhotina montada">
-                    </button>
-                    <button type="button" class="hero__thumb" data-full="res/valvulas-guilhotina/armacao-valvula-guilhotina2.jpeg" aria-label="Exibir armação da válvula guilhotina">
-                        <img src="res/valvulas-guilhotina/armacao-valvula-guilhotina2.jpeg" alt="Armação de válvula guilhotina em fabricação">
-                    </button>
-                    <button type="button" class="hero__thumb" data-full="res/valvulas-guilhotina/funcionarios-fazendo-valvula-guilhotina.jpeg" aria-label="Exibir fabricação da válvula guilhotina">
-                        <img src="res/valvulas-guilhotina/funcionarios-fazendo-valvula-guilhotina.jpeg" alt="Equipe produzindo válvula guilhotina">
-                    </button>
-                    <button type="button" class="hero__thumb" data-full="res/valvulas-guilhotina/valvulas-guilhotinas-enfileiradas.jpeg" aria-label="Exibir válvulas guilhotina enfileiradas">
-                        <img src="res/valvulas-guilhotina/valvulas-guilhotinas-enfileiradas.jpeg" alt="Série de válvulas guilhotina prontas">
-                    </button>
+
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-image" id="heroMainImage">
+                        <img src="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg" alt="Válvula Guilhotina DW Service">
+                    </div>
+                    <div class="hero-thumbnails">
+                        <div class="hero-thumb active" data-image="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg">
+                            <img src="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg" alt="Thumb 1">
+                        </div>
+                        <div class="hero-thumb" data-image="res/valvulas-guilhotina/armacao-valvula-guilhotina2.jpeg">
+                            <img src="res/valvulas-guilhotina/armacao-valvula-guilhotina2.jpeg" alt="Thumb 2">
+                        </div>
+                        <div class="hero-thumb" data-image="res/valvulas-guilhotina/funcionarios-fazendo-valvula-guilhotina.jpeg">
+                            <img src="res/valvulas-guilhotina/funcionarios-fazendo-valvula-guilhotina.jpeg" alt="Thumb 3">
+                        </div>
+                        <div class="hero-thumb" data-image="res/valvulas-guilhotina/valvulas-guilhotinas-enfileiradas.jpeg">
+                            <img src="res/valvulas-guilhotina/valvulas-guilhotinas-enfileiradas.jpeg" alt="Thumb 4">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="hero__scroll">
-            <a href="#credibilidade" class="scroll__button">
-                <i class="fas fa-chevron-down"></i>
-            </a>
         </div>
     </section>
 
-    <!-- Credibilidade Section -->
-    <section class="credibilidade section" id="credibilidade">
-        <div class="container">
-            <div class="credibilidade__grid">
-                <div class="credibilidade__card">
-                    <div class="credibilidade__icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="credibilidade__content">
-                        <h3 class="credibilidade__number">+10</h3>
-                        <p class="credibilidade__text">Anos de Experiência</p>
-                    </div>
-                </div>
-
-                <div class="credibilidade__card">
-                    <div class="credibilidade__icon">
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="trust-container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
-                    <div class="credibilidade__content">
-                        <h3 class="credibilidade__title">Certificações</h3>
-                        <p class="credibilidade__text">NR 10, NR 33, NR 35</p>
+                    <div class="trust-content">
+                        <h3>Certificações Completas</h3>
+                        <p>NR 10, 13, 33, 35 e laudos rastreáveis RBC</p>
                     </div>
                 </div>
-
-                <div class="credibilidade__card">
-                    <div class="credibilidade__icon">
+                <div class="trust-item">
+                    <div class="trust-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <div class="credibilidade__content">
-                        <h3 class="credibilidade__title">Marcas Parceiras</h3>
-                        <p class="credibilidade__text">Rockwell, Siemens, Schneider, Smar</p>
+                    <div class="trust-content">
+                        <h3>Multimarcas</h3>
+                        <p>Rockwell, Siemens, Schneider, Smar</p>
                     </div>
                 </div>
-
-                <div class="credibilidade__card">
-                    <div class="credibilidade__icon">
-                        <i class="fas fa-clipboard-check"></i>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <div class="credibilidade__content">
-                        <h3 class="credibilidade__title">Laudos Rastreados</h3>
-                        <p class="credibilidade__text">Garantia de Qualidade</p>
+                    <div class="trust-content">
+                        <h3>Prazo Controlado</h3>
+                        <p>Entrega monitorada e suporte contínuo</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="trust-content">
+                        <h3>Fabricação Própria</h3>
+                        <p>Válvulas guilhotina sob medida</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Soluções em Destaque -->
-    <section class="solucoes section" id="solucoes">
+    <!-- Produtos com Tabs -->
+    <section class="section products-section" id="produtos">
         <div class="container">
-            <div class="section__header">
-                <span class="section__subtitle">Soluções Essenciais</span>
-                <h2 class="section__title">Especialistas em Válvulas e Calibração</h2>
-                <p class="section__description">
-                    Produtos críticos para processos contínuos, com engenharia aplicada e rastreabilidade completa.
+            <div class="section-header">
+                <span class="section-badge">Nossas Soluções</span>
+                <h2 class="section-title">Válvulas Guilhotina de Alta Performance</h2>
+                <p class="section-description">
+                    Fabricação exclusiva com três níveis de automação. Todas as versões incluem revestimento anticorrosivo, 
+                    pintura eletrostática e abertura manual integrada para máxima segurança.
                 </p>
             </div>
 
-            <div class="solucoes__grid">
-                <article class="solucoes__card" data-aos="fade-up">
-                    <figure class="solucoes__media">
-                        <img id="solucoes-guilhotina-main" src="res/valvulas-guilhotina/valvula-guilhotina-pronta.jpeg" alt="Válvula guilhotina produzida pela DW Service Automation">
-                    </figure>
-                    <div class="solucoes__rail" aria-label="Galeria de válvulas guilhotina">
-                        <button type="button" class="solucoes__thumb solucoes__thumb--guilhotina is-active" data-full="res/valvulas-guilhotina/valvula-guilhotina-pronta.jpeg" aria-label="Exibir válvula guilhotina pronta">
-                            <img src="res/valvulas-guilhotina/valvula-guilhotina-pronta.jpeg" alt="Válvula guilhotina pronta">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--guilhotina" data-full="res/valvulas-guilhotina/armacao-valvula-guilhotina.jpeg" aria-label="Exibir armação da válvula guilhotina">
-                            <img src="res/valvulas-guilhotina/armacao-valvula-guilhotina.jpeg" alt="Estrutura da válvula guilhotina">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--guilhotina" data-full="res/valvulas-guilhotina/armacao-valvula-guilhotina2.jpeg" aria-label="Exibir armação da válvula guilhotina 2">
-                            <img src="res/valvulas-guilhotina/armacao-valvula-guilhotina2.jpeg" alt="Estrutura da válvula guilhotina 2">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--guilhotina" data-full="res/valvulas-guilhotina/valvula-guilhotina-montada2.jpeg" aria-label="Exibir válvula guilhotina montada">
-                            <img src="res/valvulas-guilhotina/valvula-guilhotina-montada2.jpeg" alt="Válvula guilhotina montada">
-                        </button>
-                    </div>
-                    <div class="solucoes__content">
-                        <span class="solucoes__badge"><i class="fas fa-star"></i> Produção Própria</span>
-                        <h3 class="solucoes__title">Válvulas Guilhotina</h3>
-                        <p class="solucoes__description">
-                            Registro tipo guilhotina para controle preciso de grãos, com abertura proporcional e robustez para operação contínua.
-                        </p>
-                        <ul class="solucoes__list">
-                            <li><i class="fas fa-check"></i> Projeto sob medida por processo</li>
-                            <li><i class="fas fa-check"></i> Estrutura reforçada e vedação eficiente</li>
-                            <li><i class="fas fa-check"></i> Instalação e assistência técnica</li>
-                        </ul>
-                        <a href="servicos.html#guilhotina" class="solucoes__link">
-                            Ver detalhes <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
+            <div class="product-tabs">
+                <button class="tab-btn active" data-tab="tipo1">
+                    <i class="fas fa-power-off"></i>
+                    On/Off
+                </button>
+                <button class="tab-btn" data-tab="tipo2">
+                    <i class="fas fa-sliders-h"></i>
+                    Analógico
+                </button>
+                <button class="tab-btn" data-tab="tipo3">
+                    <i class="fas fa-microchip"></i>
+                    HART Inteligente
+                </button>
+            </div>
 
-                <article class="solucoes__card" data-aos="fade-up">
-                    <figure class="solucoes__media">
-                        <img id="solucoes-controle-main" src="res/valvula-controle/valvulas-de-controle-sendo-montada1.jpeg" alt="Fabricação de válvula de controle industrial">
-                    </figure>
-                    <div class="solucoes__rail" aria-label="Galeria de válvulas de controle">
-                        <button type="button" class="solucoes__thumb solucoes__thumb--controle is-active" data-full="res/valvula-controle/valvulas-de-controle-sendo-montada1.jpeg" aria-label="Exibir controle 1">
-                            <img src="res/valvula-controle/valvulas-de-controle-sendo-montada1.jpeg" alt="Válvula de controle 1">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--controle" data-full="res/valvula-controle/valvulas-de-controle-sendo-montada3.jpeg" aria-label="Exibir controle 3">
-                            <img src="res/valvula-controle/valvulas-de-controle-sendo-montada3.jpeg" alt="Válvula de controle 3">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--controle" data-full="res/valvula-controle/valvulas-de-controle-sendo-montada4.jpeg" aria-label="Exibir controle 4">
-                            <img src="res/valvula-controle/valvulas-de-controle-sendo-montada4.jpeg" alt="Válvula de controle 4">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--controle" data-full="res/valvula-controle/valvulas-de-controle.jpeg" aria-label="Exibir controle foto">
-                            <img src="res/valvula-controle/valvulas-de-controle.jpeg" alt="Válvula de controle foto">
-                        </button>
+            <!-- Tipo 1 -->
+            <div class="product-content active" id="tipo1">
+                <div class="product-showcase">
+                    <div class="product-gallery">
+                        <div class="main-image" id="tipo1Main">
+                            <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/1.jpg" alt="Válvula Tipo 1">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <div class="gallery-thumb active" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/1.jpg">
+                                <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/1.jpg" alt="Vista 1">
+                            </div>
+                            <div class="gallery-thumb" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/2.jpg">
+                                <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/2.jpg" alt="Vista 2">
+                            </div>
+                            <div class="gallery-thumb" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/3.jpg">
+                                <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/3.jpg" alt="Vista 3">
+                            </div>
+                            <div class="gallery-thumb" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/4.jpg">
+                                <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/4.jpg" alt="Vista 4">
+                            </div>
+                        </div>
                     </div>
-                    <div class="solucoes__content">
-                        <span class="solucoes__badge"><i class="fas fa-sliders-h"></i> Controle de Processo</span>
-                        <h3 class="solucoes__title">Válvula de Controle</h3>
-                        <p class="solucoes__description">
-                            Configuramos válvulas de controle sob medida para cada etapa do processo, com ajuste proporcional e customização de atuadores.
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <i class="fas fa-power-off"></i>
+                            Acionamento On/Off
+                        </div>
+                        <h3 class="product-title">Válvula Guilhotina com Acionamento Pneumático On/Off</h3>
+                        <p class="product-description">
+                            Solução robusta para aplicações de corte direto. Combina confiabilidade pneumática com 
+                            segurança operacional através do sistema de abertura manual independente.
                         </p>
-                        <ul class="solucoes__list">
-                            <li><i class="fas fa-check"></i> Projeto e retrofit completo</li>
-                            <li><i class="fas fa-check"></i> Calibração dinâmica em bancada</li>
-                            <li><i class="fas fa-check"></i> Integração com CLPs e supervisórios</li>
+                        <ul class="product-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Revestimento anticorrosivo integral + pintura eletrostática
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Abertura manual com bloqueio mecânico de segurança
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Atuador pneumático de alto torque para resposta rápida
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Ideal para sólidos abrasivos, grãos e materiais em pó
+                            </li>
                         </ul>
-                        <a href="servicos.html#controle" class="solucoes__link">
-                            Ver detalhes <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <div class="product-actions">
+                            <a href="contato.html" class="btn btn-primary">
+                                <i class="fas fa-file-alt"></i>
+                                Solicitar Especificações
+                            </a>
+                            <a href="contato.html" class="btn btn-secondary">
+                                <i class="fas fa-phone"></i>
+                                Falar com Especialista
+                            </a>
+                        </div>
                     </div>
-                </article>
+                </div>
+            </div>
 
-                <article class="solucoes__card" data-aos="fade-up" data-aos-delay="100">
-                    <figure class="solucoes__media">
-                        <img id="solucoes-seguranca-main" src="res/valvula-seguranca/calibracao-em-bancada-valvula-seguranca.jpeg" alt="Equipe realizando manutenção em válvula de segurança">
-                    </figure>
-                    <div class="solucoes__rail" aria-label="Galeria de válvulas de segurança">
-                        <button type="button" class="solucoes__thumb solucoes__thumb--seguranca is-active" data-full="res/valvula-seguranca/calibracao-em-bancada-valvula-seguranca.jpeg" aria-label="Exibir calibração bancada">
-                            <img src="res/valvula-seguranca/calibracao-em-bancada-valvula-seguranca.jpeg" alt="Calibração em bancada">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--seguranca" data-full="res/valvula-seguranca/dono-com-valvula-de-seguranca2.jpeg" aria-label="Exibir segurança 2">
-                            <img src="res/valvula-seguranca/dono-com-valvula-de-seguranca2.jpeg" alt="Segurança 2">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--seguranca" data-full="res/valvula-seguranca/dono-com-valvula-de-seguranca.jpeg" aria-label="Exibir segurança 1">
-                            <img src="res/valvula-seguranca/dono-com-valvula-de-seguranca.jpeg" alt="Segurança 1">
-                        </button>
+            <!-- Tipo 2 -->
+            <div class="product-content" id="tipo2">
+                <div class="product-showcase">
+                    <div class="product-gallery">
+                        <div class="main-image" id="tipo2Main">
+                            <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%202/5.jpg" alt="Válvula Tipo 2">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <div class="gallery-thumb active" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%202/5.jpg">
+                                <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%202/5.jpg" alt="Vista 1">
+                            </div>
+                        </div>
                     </div>
-                    <div class="solucoes__content">
-                        <span class="solucoes__badge"><i class="fas fa-shield-alt"></i> Integridade Operacional</span>
-                        <h3 class="solucoes__title">Válvula de Segurança</h3>
-                        <p class="solucoes__description">
-                            Manutenção completa, testes em bancada pressurizada e certificação NR13 para válvulas de segurança e alívio.
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <i class="fas fa-sliders-h"></i>
+                            Controle Proporcional 4-20mA
+                        </div>
+                        <h3 class="product-title">Válvula Guilhotina com Posicionador Analógico</h3>
+                        <p class="product-description">
+                            Controle preciso de vazão com feedback analógico. O posicionador 4-20mA permite ajuste fino 
+                            da abertura, mantendo todos os recursos de segurança e durabilidade.
                         </p>
-                        <ul class="solucoes__list">
-                            <li><i class="fas fa-check"></i> Ensaios funcionais certificados</li>
-                            <li><i class="fas fa-check"></i> Troca de componentes críticos</li>
-                            <li><i class="fas fa-check"></i> Relatório técnico com rastreabilidade</li>
+                        <ul class="product-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Posicionador analógico calibrado 4-20mA com precisão ±0.5%
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Acionamento pneumático proporcional para controle fino
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Abertura manual integrada para manutenção segura
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Acabamento completo: revestimento + pintura eletrostática
+                            </li>
                         </ul>
-                        <a href="servicos.html#seguranca" class="solucoes__link">
-                            Ver detalhes <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <div class="product-actions">
+                            <a href="contato.html" class="btn btn-primary">
+                                <i class="fas fa-file-alt"></i>
+                                Solicitar Configuração
+                            </a>
+                            <a href="contato.html" class="btn btn-secondary">
+                                <i class="fas fa-phone"></i>
+                                Falar com Especialista
+                            </a>
+                        </div>
                     </div>
-                </article>
+                </div>
+            </div>
 
-                <article class="solucoes__card" data-aos="fade-up" data-aos-delay="200">
-                    <figure class="solucoes__media">
-                        <img src="res/certificacao-equipamento/certificacao-equipamentos3.jpeg" alt="Certificação de calibração com instrumentos digitais" id="solucoes-certificacao-main">
-                    </figure>
-                    <div class="solucoes__rail" aria-label="Galeria de certificação de calibração">
-                        <button type="button" class="solucoes__thumb solucoes__thumb--certificacao is-active" data-full="res/certificacao-equipamento/certificacao-equipamentos3.jpeg" aria-label="Exibir certificação 3">
-                            <img src="res/certificacao-equipamento/certificacao-equipamentos3.jpeg" alt="Certificação 3">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--certificacao" data-full="res/certificacao-equipamento/certificacao-equipamentos2.jpeg" aria-label="Exibir certificação 2">
-                            <img src="res/certificacao-equipamento/certificacao-equipamentos2.jpeg" alt="Certificação 2">
-                        </button>
-                        <button type="button" class="solucoes__thumb solucoes__thumb--certificacao" data-full="res/certificacao-equipamento/certificacao-equipamentos4.jpeg" aria-label="Exibir certificação 4">
-                            <img src="res/certificacao-equipamento/certificacao-equipamentos4.jpeg" alt="Certificação 4">
-                        </button>
+            <!-- Tipo 3 -->
+            <div class="product-content" id="tipo3">
+                <div class="product-showcase">
+                    <div class="product-gallery">
+                        <div class="main-image" id="tipo3Main">
+                            <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%203/6.jpg" alt="Válvula Tipo 3">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <div class="gallery-thumb active" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%203/6.jpg">
+                                <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%203/6.jpg" alt="Vista 1">
+                            </div>
+                            <div class="gallery-thumb" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%203/7.jpg">
+                                <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%203/7.jpg" alt="Vista 2">
+                            </div>
+                        </div>
                     </div>
-                    <div class="solucoes__content">
-                        <span class="solucoes__badge"><i class="fas fa-certificate"></i> Garantia Metrológica</span>
-                        <h3 class="solucoes__title">Certificação de Calibração</h3>
-                        <p class="solucoes__description">
-                            Emissão de certificados rastreáveis com padrões reconhecidos e entrega digital para auditorias e compliance.
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <i class="fas fa-microchip"></i>
+                            HART Inteligente Ex
+                        </div>
+                        <h3 class="product-title">Válvula Guilhotina com Posicionador HART Inteligente Ex</h3>
+                        <p class="product-description">
+                            Tecnologia de ponta para áreas classificadas. Diagnóstico remoto, comunicação digital HART 
+                            e certificação Ex garantem máxima segurança e controle em ambientes críticos.
                         </p>
-                        <ul class="solucoes__list">
-                            <li><i class="fas fa-check"></i> Padrões RBC e normas internacionais</li>
-                            <li><i class="fas fa-check"></i> Laudos digitais com histórico</li>
-                            <li><i class="fas fa-check"></i> Monitoramento pós-serviço</li>
+                        <ul class="product-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Posicionador HART inteligente certificado Ex para áreas classificadas
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Diagnóstico remoto avançado: desgaste, temperatura, vibração
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Comunicação digital HART + feedback analógico 4-20mA
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Sistema completo: abertura manual, revestimento e pintura eletrostática
+                            </li>
                         </ul>
-                        <a href="servicos.html#certificacao" class="solucoes__link">
-                            Ver detalhes <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <div class="product-actions">
+                            <a href="contato.html" class="btn btn-primary">
+                                <i class="fas fa-shield-alt"></i>
+                                Solicitar Projeto Ex
+                            </a>
+                            <a href="contato.html" class="btn btn-secondary">
+                                <i class="fas fa-phone"></i>
+                                Consultoria Técnica
+                            </a>
+                        </div>
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Serviços em Destaque -->
-    <section class="servicos-destaque section">
+    <!-- Serviços -->
+    <section class="section" id="servicos">
         <div class="container">
-            <div class="section__header">
-                <span class="section__subtitle">O que fazemos</span>
-                <h2 class="section__title">Nossos Serviços</h2>
-                <p class="section__description">
-                    Soluções completas em automação industrial com equipe altamente qualificada
+            <div class="section-header">
+                <span class="section-badge">Expertise Completa</span>
+                <h2 class="section-title">Serviços de Manutenção e Integração</h2>
+                <p class="section-description">
+                    Do diagnóstico à entrega final, oferecemos soluções completas em automação industrial 
+                    com rastreabilidade total e equipe altamente qualificada.
                 </p>
             </div>
 
-            <!-- Destaque removido conforme solicitado -->
-
-            <div class="servicos__grid">
-                <div class="servico__card" data-aos="fade-up">
-                    <div class="servico__media">
-                        <img src="res/funcionarios-fazendo-manutencao.jpeg" alt="Funcionários realizando manutenção e calibração de válvulas">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="res/valvula-controle/valvulas-de-controle-sendo-montada1.jpeg" alt="Válvulas de Controle">
                     </div>
-                    <h3 class="servico__title">Manutenção e Calibração</h3>
-                    <p class="servico__description">
-                        Manutenção e calibração de válvulas de segurança, controle, borboleta e instrumentação industrial.
-                    </p>
-                    <ul class="servico__list">
-                        <li><i class="fas fa-check"></i> Válvulas industriais</li>
-                        <li><i class="fas fa-check"></i> Transmissores</li>
-                        <li><i class="fas fa-check"></i> Posicionadores</li>
-                    </ul>
-                    <a href="servicos.html#manutencao" class="servico__link">
-                        Saiba mais <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="servico__card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="servico__media">
-                        <img src="res/integracao-sistemas.png" alt="Painel de integração de sistemas industriais">
-                    </div>
-                    <h3 class="servico__title">Integração de Sistemas</h3>
-                    <p class="servico__description">
-                        Automação com as principais marcas do mercado e sistemas supervisórios.
-                    </p>
-                    <ul class="servico__list">
-                        <li><i class="fas fa-check"></i> Rockwell Automation</li>
-                        <li><i class="fas fa-check"></i> Siemens</li>
-                        <li><i class="fas fa-check"></i> Schneider Electric</li>
-                    </ul>
-                    <a href="servicos.html#integracao" class="servico__link">
-                        Saiba mais <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="servico__card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="servico__media">
-                        <img src="res/instrumentacao-industrial.png" alt="Instrumentação industrial em operação">
-                    </div>
-                    <h3 class="servico__title">Instrumentação Industrial</h3>
-                    <p class="servico__description">
-                        Manutenção completa de transmissores e posicionadores inteligentes.
-                    </p>
-                    <ul class="servico__list">
-                        <li><i class="fas fa-check"></i> Transmissores de pressão</li>
-                        <li><i class="fas fa-check"></i> Transmissores de temperatura</li>
-                        <li><i class="fas fa-check"></i> Posicionadores inteligentes</li>
-                    </ul>
-                    <a href="servicos.html#instrumentacao" class="servico__link">
-                        Saiba mais <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Estrutura e Equipe -->
-    <section class="estrutura section section--gray">
-        <div class="container">
-            <div class="estrutura__grid">
-                <article class="estrutura__card" data-aos="fade-right">
-                    <div class="estrutura__media">
-                        <img src="res/fachada-empres.jpg" alt="Fachada da sede da DW Service Automation" loading="lazy">
-                    </div>
-                    <div class="estrutura__content">
-                        <span class="estrutura__badge">Nossa Base</span>
-                        <h3 class="estrutura__title">Infraestrutura preparada para grandes projetos</h3>
-                        <p class="estrutura__description">
-                            A sede da DW Service Automation em Cianorte/PR abriga linha de produção, laboratório de calibração e setor técnico prontos para atender demandas complexas.
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <h3 class="service-title">Válvulas de Controle</h3>
+                        <p class="service-description">
+                            Projeto, retrofit e calibração de válvulas de controle sob medida. Ajuste proporcional preciso 
+                            com integração CLPs e supervisórios.
                         </p>
-                        <a href="sobre.html" class="estrutura__link">
-                            Conheça a empresa <i class="fas fa-arrow-right"></i>
+                        <a href="contato.html" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                </article>
+                </div>
 
-                <article class="estrutura__card" data-aos="fade-left">
-                    <div class="estrutura__media">
-                        <img src="res/equipe%20de%20funcionarios+valvula%20guilhotina.jpg" alt="Equipe DW Service Automation com válvula guilhotina" loading="lazy">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="res/valvula-seguranca/calibracao-em-bancada-valvula-seguranca.jpeg" alt="Válvulas de Segurança">
                     </div>
-                    <div class="estrutura__content">
-                        <span class="estrutura__badge">Equipe Especialista</span>
-                        <h3 class="estrutura__title">Profissionais que dominam válvulas guilhotina</h3>
-                        <p class="estrutura__description">
-                            Nosso time multidisciplinar acompanha todo o ciclo: projeto, fabricação, instalação e manutenção, garantindo performance contínua para sua operação.
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="service-title">Válvulas de Segurança</h3>
+                        <p class="service-description">
+                            Manutenção completa, testes em bancada pressurizada e certificação NR13. Relatórios técnicos 
+                            com rastreabilidade total.
                         </p>
-                        <a href="servicos.html#guilhotina" class="estrutura__link">
-                            Explore nossos projetos <i class="fas fa-arrow-right"></i>
+                        <a href="contato.html" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Setores Atendidos -->
-    <section class="setores section section--dark">
-        <div class="container">
-            <div class="section__header">
-                <span class="section__subtitle">Onde atuamos</span>
-                <h2 class="section__title">Setores Atendidos</h2>
-            </div>
-
-            <div class="setores__grid">
-                <div class="setor__card" data-aos="zoom-in">
-                    <div class="setor__icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3 class="setor__title">Açúcar e Álcool</h3>
                 </div>
 
-                <div class="setor__card" data-aos="zoom-in" data-aos-delay="50">
-                    <div class="setor__icon">
-                        <i class="fas fa-seedling"></i>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="res/certificacao-equipamento/certificacao-equipamentos3.jpeg" alt="Certificação">
                     </div>
-                    <h3 class="setor__title">Grãos e Sementes</h3>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="service-title">Certificação e Calibração</h3>
+                        <p class="service-description">
+                            Emissão de certificados rastreáveis RBC com padrões internacionais. Laudos digitais para 
+                            auditorias e compliance.
+                        </p>
+                        <a href="contato.html" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="setor__card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="setor__icon">
-                        <i class="fas fa-drumstick-bite"></i>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="res/teste-online/operador-fazendo-teste-online.png" alt="Teste Online">
                     </div>
-                    <h3 class="setor__title">Frigoríficos</h3>
-                </div>
-
-                <div class="setor__card" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="setor__icon">
-                        <i class="fas fa-flask"></i>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3 class="service-title">Teste Online</h3>
+                        <p class="service-description">
+                            Validação funcional direto na planta sem desmontagem. 
+                        </p>
+                        <a href="contato.html" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <h3 class="setor__title">Fertilizantes</h3>
-                </div>
-
-                <div class="setor__card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="setor__icon">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <h3 class="setor__title">Óleo Vegetal</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta section">
+    <!-- CTA -->
+    <section class="section cta-section" id="contato">
         <div class="container">
-            <div class="cta__content">
-                <h2 class="cta__title">Pronto para levar sua indústria ao próximo nível?</h2>
-                <p class="cta__description">
-                    Entre em contato conosco e descubra como podemos otimizar seus processos industriais.
+            <div class="cta-container">
+                <h2 class="cta-title">Pronto para Elevar sua Operação Industrial?</h2>
+                <p class="cta-description">
+                    Fale com nossos especialistas e descubra como podemos otimizar seus processos com 
+                    soluções personalizadas e suporte técnico contínuo.
                 </p>
-                <div class="cta__buttons">
-                    <a href="contato.html" class="btn btn--primary btn--large">
-                        <i class="fas fa-paper-plane"></i>
-                        Solicitar Orçamento
-                    </a>
-                    <a href="tel:+554430394542" class="btn btn--outline btn--large">
+                <div class="cta-buttons">
+                    <a href="tel:+554430394542" class="btn btn-primary">
                         <i class="fas fa-phone"></i>
                         (44) 3039-4542
+                    </a>
+                    <a href="https://wa.me/5544988215020" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="mailto:contato@dwservice.com.br" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        E-mail
                     </a>
                 </div>
             </div>
@@ -479,92 +1447,163 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <div class="footer__logo">
-                        <img src="res/logo.png" alt="DW Service Automation">
-                    </div>
-                    <p class="footer__description">
-                        Especialistas em automação industrial com foco em precisão, confiabilidade e excelência técnica.
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="res/logo.png" alt="DW Service Automation">
+                    <p class="footer-description">
+                        Especialistas em automação industrial com foco em precisão, confiabilidade e excelência técnica 
+                        há mais de 10 anos.
                     </p>
-                    <div class="footer__social">
-                        <a href="#" class="footer__social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="footer__social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="footer__social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
-                <div class="footer__col">
-                    <h4 class="footer__title">Navegação</h4>
-                    <ul class="footer__links">
+                <div class="footer-col">
+                    <h4 class="footer-title">Navegação</h4>
+                    <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#produtos">Produtos</a></li>
                         <li><a href="servicos.html">Serviços</a></li>
                         <li><a href="setores.html">Setores</a></li>
                         <li><a href="sobre.html">Sobre</a></li>
-                        <li><a href="contato.html">Contato</a></li>
                     </ul>
                 </div>
 
-                <div class="footer__col">
-                    <h4 class="footer__title">Serviços</h4>
-                    <ul class="footer__links">
-                        <li><a href="servicos.html#manutencao">Manutenção de Válvulas</a></li>
-                        <li><a href="servicos.html#instrumentacao">Instrumentação</a></li>
-                        <li><a href="servicos.html#integracao">Integração de Sistemas</a></li>
-                        <li><a href="servicos.html#guilhotina">Válvulas Guilhotina</a></li>
-                        <li><a href="servicos.html#certificacao">Certificação de Calibração</a></li>
+                <div class="footer-col">
+                    <h4 class="footer-title">Soluções</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#produtos">Válvulas Guilhotina</a></li>
+                        <li><a href="servicos.html#controle">Válvulas de Controle</a></li>
+                        <li><a href="servicos.html#seguranca">Válvulas de Segurança</a></li>
+                        <li><a href="servicos.html#certificacao">Certificação</a></li>
+                        <li><a href="servicos.html#teste-online">Teste Online</a></li>
                     </ul>
                 </div>
 
-                <div class="footer__col">
-                    <h4 class="footer__title">Contato</h4>
-                    <ul class="footer__contact">
+                <div class="footer-col">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-contact">
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span><strong>Matriz:</strong> Rodovia - Número 7040<br>CEP 87211-400 - Cianorte/PR</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-location-dot"></i>
-                            <span><strong>Filial:</strong> Av. Rio Branco, 240<br>CEP 87200-000 - Cianorte/PR</span>
+                            <span>Rodovia - Número 7040<br>CEP 87211-400 - Cianorte/PR</span>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
-                            <div>
-                                <a href="tel:+554430394542">(44) 3039-4542</a><br>
-                                <a href="tel:+5544988215020">(44) 98821-5020</a>
-                            </div>
+                            <span>(44) 3039-4542<br>(44) 98821-5020</span>
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:contato@dwservice.com.br">contato@dwservice.com.br</a>
+                            <span>contato@dwservice.com.br</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="footer__bottom">
+            <div class="footer-bottom">
                 <p>&copy; 2024 DW Service Automation. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Flutuante -->
-    <a href="https://wa.me/5544988215020" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5544988215020" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scroll-top" aria-label="Voltar ao topo">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <script>
+        // Header Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
+        // Hero Gallery
+        const heroThumbs = document.querySelectorAll('.hero-thumb');
+        const heroMainImage = document.getElementById('heroMainImage').querySelector('img');
+
+        heroThumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const newImage = thumb.dataset.image;
+                heroMainImage.src = newImage;
+                
+                heroThumbs.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+        });
+
+        // Product Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const productContents = document.querySelectorAll('.product-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.dataset.tab;
+                
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                productContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === targetTab) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Product Gallery (para cada tipo)
+        function initProductGallery(mainId, thumbsSelector) {
+            const mainImage = document.getElementById(mainId);
+            if (!mainImage) return;
+            
+            const mainImg = mainImage.querySelector('img');
+            const thumbs = mainImage.closest('.product-showcase').querySelectorAll(thumbsSelector);
+
+            thumbs.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    const newImage = thumb.dataset.image;
+                    mainImg.src = newImage;
+                    
+                    thumbs.forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+            });
+        }
+
+        initProductGallery('tipo1Main', '.gallery-thumb');
+        initProductGallery('tipo2Main', '.gallery-thumb');
+        initProductGallery('tipo3Main', '.gallery-thumb');
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    const navLinks = document.getElementById('navLinks');
+                    if (navLinks) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
-

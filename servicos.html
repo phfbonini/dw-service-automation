@@ -19,37 +19,21 @@
 <body>
     <!-- Header/Navigation -->
     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="index.html" class="nav__logo">
+        <nav class="nav">
+            <a href="index.html" class="logo">
                 <img src="res/logo.png" alt="DW Service Automation">
             </a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="servicos.html" class="nav__link active">Serviços</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="setores.html" class="nav__link">Setores</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="sobre.html" class="nav__link">Sobre</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="contato.html" class="nav__link nav__cta">Contato</a>
-                    </li>
-                </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-
-            <div class="nav__toggle" id="nav-toggle">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#produtos">Produtos</a></li>
+                <li><a href="servicos.html" class="active">Serviços</a></li>
+                <li><a href="setores.html">Setores</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html" class="nav-cta">Solicitar Orçamento</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
     </header>
 
@@ -222,15 +206,55 @@
         </div>
     </section>
 
-    <!-- Manutenção e Calibração -->
-    <section class="service-detail section" id="manutencao">
+    <!-- Teste Online em Linha -->
+    <section class="service-detail section" id="teste-online">
         <div class="container">
             <div class="service-detail__grid">
                 <div class="service-detail__image">
                     <figure class="service-detail__photo">
-                        <img src="res/funcionarios-fazendo-manutencao.jpeg" alt="Equipe DW realizando manutenção e calibração de válvulas industriais">
+                        <img src="res/teste-online/operador-fazendo-teste-online.png" alt="Operador realizando teste online de válvula em linha">
                     </figure>
                 </div>
+                <div class="service-detail__content">
+                    <span class="service-detail__badge">Teste em Linha</span>
+                    <h2 class="service-detail__title">Teste Online de Válvulas em Operação</h2>
+                    <p class="service-detail__description">
+                        Realizamos testes de válvulas de segurança na linha de processo, sem a necessidade de desmontagem. Isso minimiza paradas, reduz custos e garante a integridade operacional contínua.
+                    </p>
+
+                    <h3 class="service-detail__subtitle">Benefícios</h3>
+                    <ul class="service-detail__list">
+                        <li><i class="fas fa-check-circle"></i> Monitoramento em tempo real com registro digital</li>
+                        <li><i class="fas fa-check-circle"></i> Redução drástica do tempo de inatividade da planta</li>
+                        <li><i class="fas fa-check-circle"></i> Laudos técnicos com rastreabilidade e conformidade NR13</li>
+                        <li><i class="fas fa-check-circle"></i> Equipe especializada e equipamentos de última geração</li>
+                        <li><i class="fas fa-check-circle"></i> Simulação de força hidraúlica sem interrupção</li>
+                        <li><i class="fas fa-check-circle"></i> Validação funcional completa sem desmontagem</li>
+                    </ul>
+
+                    <div class="service-detail__highlight">
+                        <i class="fas fa-plug"></i>
+                        <div>
+                            <strong>Teste sem parada de produção</strong>
+                            <p>Validação funcional direto na planta, mantendo sua operação em funcionamento contínuo.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-detail__cta">
+                        <a href="contato.html" class="btn btn--primary">
+                            <i class="fas fa-flask"></i>
+                            Agendar Teste Online
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manutenção e Calibração -->
+    <section class="service-detail section section--gray" id="manutencao">
+        <div class="container">
+            <div class="service-detail__grid service-detail__grid--reverse">
                 <div class="service-detail__content">
                     <span class="service-detail__badge">Serviço Principal</span>
                     <h2 class="service-detail__title">Manutenção e Calibração</h2>
@@ -271,14 +295,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="service-detail__image">
+                    <figure class="service-detail__photo">
+                        <img src="res/funcionarios-fazendo-manutencao.jpeg" alt="Equipe DW realizando manutenção e calibração de válvulas industriais">
+                    </figure>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Integração de Sistemas -->
-    <section class="service-detail section section--gray" id="integracao">
+    <section class="service-detail section" id="integracao">
         <div class="container">
-            <div class="service-detail__grid service-detail__grid--reverse">
+            <div class="service-detail__grid">
+                <div class="service-detail__image">
+                    <figure class="service-detail__photo">
+                        <img src="res/integracao-sistemas.png" alt="Integração de sistemas de automação industrial com CLPs e painéis">
+                    </figure>
+                </div>
                 <div class="service-detail__content">
                     <span class="service-detail__badge">Automação</span>
                     <h2 class="service-detail__title">Integração de Sistemas</h2>
@@ -320,24 +354,14 @@
                         <li><i class="fas fa-check-circle"></i> Projetos de Automação Customizados</li>
                     </ul>
                 </div>
-                <div class="service-detail__image">
-                    <figure class="service-detail__photo">
-                        <img src="res/integracao-sistemas.png" alt="Integração de sistemas de automação industrial com CLPs e painéis">
-                    </figure>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Instrumentação -->
-    <section class="service-detail section" id="instrumentacao">
+    <section class="service-detail section section--gray" id="instrumentacao">
         <div class="container">
-            <div class="service-detail__grid">
-                <div class="service-detail__image">
-                    <figure class="service-detail__photo">
-                        <img src="res/instrumentacao-industrial.png" alt="Instrumentação industrial em ambiente de produção">
-                    </figure>
-                </div>
+            <div class="service-detail__grid service-detail__grid--reverse">
                 <div class="service-detail__content">
                     <span class="service-detail__badge">Precisão</span>
                     <h2 class="service-detail__title">Instrumentação Industrial</h2>
@@ -377,6 +401,11 @@
                         <li><i class="fas fa-check-circle"></i> Sensores de Nível</li>
                         <li><i class="fas fa-check-circle"></i> Sistemas de Pesagem Industrial</li>
                     </ul>
+                </div>
+                <div class="service-detail__image">
+                    <figure class="service-detail__photo">
+                        <img src="res/instrumentacao-industrial.png" alt="Instrumentação industrial em ambiente de produção">
+                    </figure>
                 </div>
             </div>
         </div>
@@ -502,6 +531,7 @@
                         <li><a href="servicos.html#integracao">Integração de Sistemas</a></li>
                         <li><a href="servicos.html#guilhotina">Válvulas Guilhotina</a></li>
                         <li><a href="servicos.html#certificacao">Certificação de Calibração</a></li>
+                        <li><a href="servicos.html#teste-online">Teste Online em Linha</a></li>
                     </ul>
                 </div>
 

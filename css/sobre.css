@@ -2,24 +2,54 @@
 
 /* Page Header */
 .page-header {
-    padding-top: calc(var(--header-height) + var(--spacing-3xl));
-    padding-bottom: var(--spacing-3xl);
-    background: var(--gradient-primary);
+    padding-top: calc(80px + 6rem);
+    padding-bottom: 6rem;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 50%, var(--gray-800) 100%);
     color: var(--white);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.page-header__content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .page-header__title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    font-weight: 800;
     color: var(--white);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .page-header__description {
     font-size: 1.25rem;
+    color: var(--gray-400);
     max-width: 600px;
     margin: 0 auto;
-    opacity: 0.95;
+    line-height: 1.7;
 }
 
 /* História */
@@ -385,6 +415,11 @@
 
 /* ==================== RESPONSIVE ==================== */
 @media screen and (max-width: 968px) {
+    .page-header {
+        padding-top: calc(80px + 4rem);
+        padding-bottom: 4rem;
+    }
+    
     .page-header__title {
         font-size: 2.5rem;
     }
@@ -416,6 +451,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .page-header {
+        padding-top: calc(80px + 3rem);
+        padding-bottom: 3rem;
+    }
+    
     .page-header__title {
         font-size: 2rem;
     }
