@@ -647,7 +647,7 @@
         /* Services Grid Premium */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
         }
 
@@ -915,6 +915,10 @@
                 order: -1;
             }
 
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1055,20 +1059,32 @@
             <div class="hero-visual">
                 <div class="hero-card">
                     <div class="hero-image" id="heroMainImage">
-                        <img src="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg" alt="Válvula Guilhotina DW Service">
+                        <img src="res/imagens-destaque/1.jpg" alt="Automação Industrial DW Service">
                     </div>
                     <div class="hero-thumbnails">
-                        <div class="hero-thumb active" data-image="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg">
-                            <img src="res/valvulas-guilhotina/valvula-guilhotina-montada.jpeg" alt="Thumb 1">
+                        <div class="hero-thumb active" data-image="res/imagens-destaque/1.jpg">
+                            <img src="res/imagens-destaque/1.jpg" alt="Imagem 1">
                         </div>
-                        <div class="hero-thumb" data-image="res/valvulas-guilhotina/armacao-valvula-guilhotina2.jpeg">
-                            <img src="res/valvulas-guilhotina/armacao-valvula-guilhotina2.jpeg" alt="Thumb 2">
+                        <div class="hero-thumb" data-image="res/imagens-destaque/2.jpeg">
+                            <img src="res/imagens-destaque/2.jpeg" alt="Imagem 2">
                         </div>
-                        <div class="hero-thumb" data-image="res/valvulas-guilhotina/funcionarios-fazendo-valvula-guilhotina.jpeg">
-                            <img src="res/valvulas-guilhotina/funcionarios-fazendo-valvula-guilhotina.jpeg" alt="Thumb 3">
+                        <div class="hero-thumb" data-image="res/imagens-destaque/3.jpeg">
+                            <img src="res/imagens-destaque/3.jpeg" alt="Imagem 3">
                         </div>
-                        <div class="hero-thumb" data-image="res/valvulas-guilhotina/valvulas-guilhotinas-enfileiradas.jpeg">
-                            <img src="res/valvulas-guilhotina/valvulas-guilhotinas-enfileiradas.jpeg" alt="Thumb 4">
+                        <div class="hero-thumb" data-image="res/imagens-destaque/4.jpeg">
+                            <img src="res/imagens-destaque/4.jpeg" alt="Imagem 4">
+                        </div>
+                        <div class="hero-thumb" data-image="res/imagens-destaque/5.jpg">
+                            <img src="res/imagens-destaque/5.jpg" alt="Imagem 5">
+                        </div>
+                        <div class="hero-thumb" data-image="res/imagens-destaque/6.jpeg">
+                            <img src="res/imagens-destaque/6.jpeg" alt="Imagem 6">
+                        </div>
+                        <div class="hero-thumb" data-image="res/imagens-destaque/7.jpeg">
+                            <img src="res/imagens-destaque/7.jpeg" alt="Imagem 7">
+                        </div>
+                        <div class="hero-thumb" data-image="res/imagens-destaque/8.jpeg">
+                            <img src="res/imagens-destaque/8.jpeg" alt="Imagem 8">
                         </div>
                     </div>
                 </div>
@@ -1524,19 +1540,71 @@
             }
         });
 
-        // Hero Gallery
+        // Hero Gallery com Autoplay
         const heroThumbs = document.querySelectorAll('.hero-thumb');
         const heroMainImage = document.getElementById('heroMainImage').querySelector('img');
+        let currentHeroIndex = 0;
+        let heroAutoplayInterval;
 
-        heroThumbs.forEach(thumb => {
-            thumb.addEventListener('click', () => {
+        function changeHeroImage(index) {
+            if (index >= 0 && index < heroThumbs.length) {
+                const thumb = heroThumbs[index];
                 const newImage = thumb.dataset.image;
-                heroMainImage.src = newImage;
+                heroMainImage.style.opacity = '0';
                 
-                heroThumbs.forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
+                setTimeout(() => {
+                    heroMainImage.src = newImage;
+                    heroMainImage.style.opacity = '1';
+                    
+                    heroThumbs.forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                    currentHeroIndex = index;
+                }, 300);
+            }
+        }
+
+        function nextHeroImage() {
+            currentHeroIndex = (currentHeroIndex + 1) % heroThumbs.length;
+            changeHeroImage(currentHeroIndex);
+        }
+
+        // Clique manual nas thumbnails
+        heroThumbs.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                currentHeroIndex = index;
+                changeHeroImage(currentHeroIndex);
+                resetHeroAutoplay();
             });
         });
+
+        // Autoplay - troca a cada 4 segundos
+        function startHeroAutoplay() {
+            heroAutoplayInterval = setInterval(nextHeroImage, 4000);
+        }
+
+        function resetHeroAutoplay() {
+            clearInterval(heroAutoplayInterval);
+            startHeroAutoplay();
+        }
+
+        // Pausar autoplay ao passar o mouse
+        const heroCard = document.querySelector('.hero-card');
+        if (heroCard) {
+            heroCard.addEventListener('mouseenter', () => {
+                clearInterval(heroAutoplayInterval);
+            });
+            heroCard.addEventListener('mouseleave', () => {
+                startHeroAutoplay();
+            });
+        }
+
+        // Iniciar autoplay
+        startHeroAutoplay();
+
+        // Transição suave da imagem
+        if (heroMainImage) {
+            heroMainImage.style.transition = 'opacity 0.5s ease-in-out';
+        }
 
         // Product Tabs
         const tabBtns = document.querySelectorAll('.tab-btn');
