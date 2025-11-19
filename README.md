@@ -249,7 +249,7 @@ CEP: 87200-000
 ## 📝 Licença
 
 Este projeto foi desenvolvido para **DW Service Automation**.  
-© 2024 DW Service Automation. Todos os direitos reservados.
+© 2025 DW Service Automation. Todos os direitos reservados.
 
 ---
 

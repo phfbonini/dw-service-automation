@@ -856,6 +856,27 @@
         .footer-contact li {
             display: flex;
             gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .footer-contact li div {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .footer-contact li div strong {
+            line-height: 1.3;
+            margin-bottom: 0.25rem;
+        }
+        
+        .footer-contact li div span {
+            line-height: 1.5;
+        }
+
+        .footer-contact li strong {
+            color: var(--white);
+            font-weight: 600;
         }
 
         .footer-contact i {
@@ -1007,7 +1028,7 @@
                 <li><a href="setores.html">Setores</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html" class="nav-cta">Solicitar Orçamento</a></li>
-            </ul>
+                </ul>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1060,26 +1081,26 @@
                 <div class="hero-card">
                     <div class="hero-image" id="heroMainImage">
                         <img src="res/imagens-destaque/1.jpg" alt="Automação Industrial DW Service">
-                    </div>
+                </div>
                     <div class="hero-thumbnails">
                         <div class="hero-thumb active" data-image="res/imagens-destaque/1.jpg">
                             <img src="res/imagens-destaque/1.jpg" alt="Imagem 1">
-                        </div>
+            </div>
                         <div class="hero-thumb" data-image="res/imagens-destaque/2.jpeg">
                             <img src="res/imagens-destaque/2.jpeg" alt="Imagem 2">
-                        </div>
+        </div>
                         <div class="hero-thumb" data-image="res/imagens-destaque/3.jpeg">
                             <img src="res/imagens-destaque/3.jpeg" alt="Imagem 3">
-                        </div>
+        </div>
                         <div class="hero-thumb" data-image="res/imagens-destaque/4.jpeg">
                             <img src="res/imagens-destaque/4.jpeg" alt="Imagem 4">
-                        </div>
+                    </div>
                         <div class="hero-thumb" data-image="res/imagens-destaque/5.jpg">
                             <img src="res/imagens-destaque/5.jpg" alt="Imagem 5">
-                        </div>
+                    </div>
                         <div class="hero-thumb" data-image="res/imagens-destaque/6.jpeg">
                             <img src="res/imagens-destaque/6.jpeg" alt="Imagem 6">
-                        </div>
+                </div>
                         <div class="hero-thumb" data-image="res/imagens-destaque/7.jpeg">
                             <img src="res/imagens-destaque/7.jpeg" alt="Imagem 7">
                         </div>
@@ -1152,16 +1173,16 @@
                 <button class="tab-btn active" data-tab="tipo1">
                     <i class="fas fa-power-off"></i>
                     On/Off
-                </button>
+                        </button>
                 <button class="tab-btn" data-tab="tipo2">
                     <i class="fas fa-sliders-h"></i>
                     Analógico
-                </button>
+                        </button>
                 <button class="tab-btn" data-tab="tipo3">
                     <i class="fas fa-microchip"></i>
                     HART Inteligente
-                </button>
-            </div>
+                        </button>
+                    </div>
 
             <!-- Tipo 1 -->
             <div class="product-content active" id="tipo1">
@@ -1169,14 +1190,14 @@
                     <div class="product-gallery">
                         <div class="main-image" id="tipo1Main">
                             <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/1.jpg" alt="Válvula Tipo 1">
-                        </div>
+                </div>
                         <div class="gallery-thumbs">
                             <div class="gallery-thumb active" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/1.jpg">
                                 <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/1.jpg" alt="Vista 1">
-                            </div>
+            </div>
                             <div class="gallery-thumb" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/2.jpg">
                                 <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/2.jpg" alt="Vista 2">
-                            </div>
+                    </div>
                             <div class="gallery-thumb" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/3.jpg">
                                 <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%201/3.jpg" alt="Vista 3">
                             </div>
@@ -1212,7 +1233,7 @@
                                 <i class="fas fa-check-circle"></i>
                                 Ideal para sólidos abrasivos, grãos e materiais em pó
                             </li>
-                        </ul>
+                    </ul>
                         <div class="product-actions">
                             <a href="contato.html" class="btn btn-primary">
                                 <i class="fas fa-file-alt"></i>
@@ -1225,7 +1246,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
 
             <!-- Tipo 2 -->
             <div class="product-content" id="tipo2">
@@ -1233,7 +1254,7 @@
                     <div class="product-gallery">
                         <div class="main-image" id="tipo2Main">
                             <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%202/5.jpg" alt="Válvula Tipo 2">
-                        </div>
+                    </div>
                         <div class="gallery-thumbs">
                             <div class="gallery-thumb active" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%202/5.jpg">
                                 <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%202/5.jpg" alt="Vista 1">
@@ -1267,7 +1288,7 @@
                                 <i class="fas fa-check-circle"></i>
                                 Acabamento completo: revestimento + pintura eletrostática
                             </li>
-                        </ul>
+                    </ul>
                         <div class="product-actions">
                             <a href="contato.html" class="btn btn-primary">
                                 <i class="fas fa-file-alt"></i>
@@ -1280,7 +1301,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
 
             <!-- Tipo 3 -->
             <div class="product-content" id="tipo3">
@@ -1288,7 +1309,7 @@
                     <div class="product-gallery">
                         <div class="main-image" id="tipo3Main">
                             <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%203/6.jpg" alt="Válvula Tipo 3">
-                        </div>
+                    </div>
                         <div class="gallery-thumbs">
                             <div class="gallery-thumb active" data-image="res/valvulas-guilhotina/novas-solicitacoes/tipo%203/6.jpg">
                                 <img src="res/valvulas-guilhotina/novas-solicitacoes/tipo%203/6.jpg" alt="Vista 1">
@@ -1325,7 +1346,7 @@
                                 <i class="fas fa-check-circle"></i>
                                 Sistema completo: abertura manual, revestimento e pintura eletrostática
                             </li>
-                        </ul>
+                    </ul>
                         <div class="product-actions">
                             <a href="contato.html" class="btn btn-primary">
                                 <i class="fas fa-shield-alt"></i>
@@ -1352,7 +1373,7 @@
                     Do diagnóstico à entrega final, oferecemos soluções completas em automação industrial 
                     com rastreabilidade total e equipe altamente qualificada.
                 </p>
-            </div>
+                    </div>
 
             <div class="services-grid">
                 <div class="service-card">
@@ -1372,16 +1393,16 @@
                             Saiba mais <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                </div>
+            </div>
 
                 <div class="service-card">
                     <div class="service-image">
                         <img src="res/valvula-seguranca/calibracao-em-bancada-valvula-seguranca.jpeg" alt="Válvulas de Segurança">
-                    </div>
+            </div>
                     <div class="service-content">
                         <div class="service-icon">
                             <i class="fas fa-shield-alt"></i>
-                        </div>
+                    </div>
                         <h3 class="service-title">Válvulas de Segurança</h3>
                         <p class="service-description">
                             Manutenção completa, testes em bancada pressurizada e certificação NR13. Relatórios técnicos 
@@ -1400,7 +1421,7 @@
                     <div class="service-content">
                         <div class="service-icon">
                             <i class="fas fa-certificate"></i>
-                        </div>
+                </div>
                         <h3 class="service-title">Certificação e Calibração</h3>
                         <p class="service-description">
                             Emissão de certificados rastreáveis RBC com padrões internacionais. Laudos digitais para 
@@ -1419,7 +1440,7 @@
                     <div class="service-content">
                         <div class="service-icon">
                             <i class="fas fa-plug"></i>
-                        </div>
+                </div>
                         <h3 class="service-title">Teste Online</h3>
                         <p class="service-description">
                             Validação funcional direto na planta sem desmontagem. 
@@ -1465,7 +1486,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="res/logo.png" alt="DW Service Automation">
+                        <img src="res/logo.png" alt="DW Service Automation">
                     <p class="footer-description">
                         Especialistas em automação industrial com foco em precisão, confiabilidade e excelência técnica 
                         há mais de 10 anos.
@@ -1504,7 +1525,17 @@
                     <ul class="footer-contact">
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Rodovia - Número 7040<br>CEP 87211-400 - Cianorte/PR</span>
+                            <div>
+                                <strong>Matriz:</strong>
+                                <span>Rodovia PR-323 - Número 7040<br>CEP 87211-400 - Cianorte/PR</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <strong>Filial:</strong>
+                                <span>Av. Rio Branco, 240<br>CEP 87200-000 - Cianorte/PR</span>
+                            </div>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
@@ -1519,7 +1550,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 DW Service Automation. Todos os direitos reservados.</p>
+                <p>&copy; 2025 DW Service Automation. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
