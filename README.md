@@ -221,11 +221,11 @@ Depois ative o GitHub Pages nas configurações do repositório.
 ### Departamento Comercial
 - **Telefone**: (44) 3039-4542
 - **WhatsApp**: (44) 98821-5020
-- **E-mail**: comercial@dwservice.com.br
+- **E-mail**: dwservice@dwservice.com.br
 
 ### Departamento Técnico
 - **Telefone**: (44) 99984-5900
-- **E-mail**: tecnico@dwservice.com.br
+- **E-mail**: daniel@dwservice.com.br
 
 ### Endereço
 **Av. Rio Branco, 240**  
